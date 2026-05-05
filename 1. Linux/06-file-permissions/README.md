@@ -19,6 +19,15 @@ Output example:
 ```bash
 -rwxr--r-- 1 user group 1234 Mar 28 10:00 myfile.sh
 ```
+Example: -rwx-w-r-- 1 priyanka priyanka       352 Mar 17 12:45 deploy.yml 
+- `-rwx-w-r--`:	File permissions
+> - ( - )indicates (File type: - =  Normal file, d = Directory, l = Symbolic link). rwx for Owner.  -w- for Group.   r-- for Others.
+- `1`:	Number of hard links
+- `priyanka`:	File owner/user
+- `priyanka`:	File group
+- `352`:	File size in bytes
+- `Mar 17 12:45`:	Last modified date & time
+- `deploy.yml`:	File name
 
 ## Changing Permissions with `chmod`
 ### Using Symbolic Mode
