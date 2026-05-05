@@ -1,0 +1,420 @@
+# Jenkins Full Concepts
+
+Jenkins is an open-source automation server used for Continuous Integration called CI and Continuous Delivery/Deployment called CD.
+
+Jenkins automates software building, testing, and deployment processes.
+
+Jenkins helps developers and DevOps Engineers automate repetitive tasks in the software development lifecycle.
+
+Jenkins is mainly used for CI/CD pipelines, build automation, testing, deployment, and infrastructure automation.
+
+Jenkins is written in Java, it runs on platforms like Linux, Windows, and macOS.
+
+Jenkins supports thousands of plugins, plugins extend Jenkins functionality.
+
+## What is CI/CD
+
+Continuous Integration called CI is the process of automatically building and testing code whenever developers push changes to Git repositories.
+
+Continuous Delivery called CD automatically prepares applications for deployment after successful testing.
+
+Continuous Deployment automatically deploys applications to production without manual approval.
+
+Jenkins automates the entire CI/CD workflow.
+
+## Why Jenkins is Used
+
+Jenkins reduces manual work in software delivery processes.
+
+Jenkins automates code build, testing, and deployment pipelines.
+
+Jenkins improves software delivery speed and consistency.
+
+Jenkins detects code integration issues early.
+
+Jenkins integrates with Git, Docker, Kubernetes, Maven, Terraform, and cloud platforms.
+
+Jenkins supports distributed builds using master-agent architecture.
+
+## Jenkins Architecture
+
+Jenkins follows a master-agent architecture.
+
+Main components are Jenkins Controller called Master, Jenkins Agent called Slave, Plugins, Jobs, Pipelines, and Build Queue.
+
+### Jenkins Controller
+
+The Jenkins Controller manages jobs, pipelines, plugins, and user authentication.
+
+The controller schedules builds and distributes tasks to agents.
+
+The controller stores build history, configurations, and logs.
+
+### Jenkins Agent
+
+Agents execute build and deployment tasks assigned by the controller.
+
+Agents can run on different servers or operating systems.
+
+Agents help distribute workloads and improve scalability.
+
+### Plugins
+
+Plugins extend Jenkins functionality.
+
+Plugins integrate Jenkins with tools like Git, Docker, Kubernetes, Maven, and Terraform.
+
+### Jobs
+
+A Job is a task or automation process executed by Jenkins.
+
+Jobs can build code, run tests, deploy applications, or execute scripts.
+
+### Pipelines
+
+Pipelines define the CI/CD workflow as code.
+
+Pipelines automate multiple stages like build, test, scan, and deployment.
+
+## Jenkins Installation
+
+Jenkins is commonly installed on Linux servers.
+
+Install Java first because Jenkins requires Java.
+
+Example installation on Ubuntu:
+
+```bash id="8y1g7w"
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+```
+
+Install Jenkins:
+
+```bash id="g7vpmj"
+sudo apt install jenkins -y
+```
+
+Start Jenkins service:
+
+```bash id="1n9v0v"
+sudo systemctl start jenkins
+```
+
+Enable Jenkins during boot:
+
+```bash id="4kz4xv"
+sudo systemctl enable jenkins
+```
+
+Check Jenkins service status:
+
+```bash id="0nyprr"
+systemctl status jenkins
+```
+
+Jenkins usually runs on port `8080`.
+
+Access Jenkins using browser:
+
+```text id="d2o8np"
+http://server-ip:8080
+```
+
+## Jenkins Initial Setup
+
+Unlock Jenkins using the initial admin password.
+
+Get password:
+
+```bash id="d1j1ws"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+Install suggested plugins during first setup.
+
+Create Jenkins admin user.
+
+Configure Jenkins URL and settings.
+
+## Jenkins Dashboard
+
+Dashboard displays jobs, pipelines, build history, and system information.
+
+Dashboard helps monitor CI/CD workflows visually.
+
+## Freestyle Jobs
+
+Freestyle Job is a simple Jenkins job configuration.
+
+Freestyle jobs are used for basic automation tasks.
+
+Create job → Add build steps → Save → Build.
+
+Example build step:
+
+```bash id="d5m4ui"
+echo "Hello Jenkins"
+```
+
+## Jenkins Pipeline
+
+Pipeline is a code-based automation workflow.
+
+Pipelines are written using Groovy syntax inside a Jenkinsfile.
+
+Pipelines improve automation consistency and version control.
+
+### Declarative Pipeline Example
+
+```groovy id="p7cllw"
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Application'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing Application'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying Application'
+            }
+        }
+    }
+}
+```
+
+## Jenkinsfile
+
+Jenkinsfile stores pipeline definitions as code inside Git repositories.
+
+Jenkins automatically reads the Jenkinsfile during pipeline execution.
+
+Jenkinsfile supports version control and collaboration.
+
+## Pipeline Stages
+
+Stages divide the pipeline into logical sections.
+
+Common stages are Build, Test, Security Scan, Package, Deploy, and Monitor.
+
+Each stage contains steps executed sequentially.
+
+## Jenkins Build Process
+
+Developer pushes code to Git repository.
+
+Jenkins detects code changes using webhooks or polling.
+
+Jenkins pulls the latest code from Git repository.
+
+Jenkins executes build steps and test cases.
+
+Jenkins creates artifacts like `.jar`, `.war`, or Docker Images.
+
+Jenkins deploys applications to servers or Kubernetes clusters.
+
+## Jenkins with Git
+
+Jenkins integrates with Git repositories for source code management.
+
+Install Git plugin in Jenkins.
+
+Configure Git repository URL inside Jenkins jobs.
+
+Example Git clone command inside Jenkins:
+
+```bash id="yyk9ea"
+git clone https://github.com/user/repo.git
+```
+
+Webhooks automatically trigger Jenkins builds when code changes are pushed.
+
+## Jenkins with Maven
+
+Maven is commonly used with Jenkins for Java application builds.
+
+Maven manages dependencies and application packaging.
+
+Example Maven build command:
+
+```bash id="j7twji"
+mvn clean install
+```
+
+## Jenkins with Docker
+
+Jenkins integrates with Docker for containerized application builds and deployments.
+
+Example Docker build command inside Jenkins:
+
+```bash id="j5x3kn"
+docker build -t myapp .
+```
+
+Run Docker container:
+
+```bash id="udg5sn"
+docker run -d myapp
+```
+
+## Jenkins with Kubernetes
+
+Jenkins integrates with Kubernetes for container deployments.
+
+Jenkins can dynamically create Kubernetes agent pods for builds.
+
+Example deployment command:
+
+```bash id="0m8o1f"
+kubectl apply -f deployment.yaml
+```
+
+## Jenkins Agents
+
+Agents execute build tasks assigned by the controller.
+
+Agents can be static or dynamic.
+
+Dynamic agents are automatically created using Docker or Kubernetes.
+
+Jenkins supports distributed builds using multiple agents.
+
+## Jenkins Plugins
+
+Jenkins plugins provide additional functionality.
+
+Common plugins are Git Plugin, Docker Plugin, Pipeline Plugin, Blue Ocean Plugin, Kubernetes Plugin, and Slack Plugin.
+
+Plugins are managed from Jenkins Plugin Manager.
+
+## Jenkins Credentials Management
+
+Jenkins securely stores usernames, passwords, SSH keys, and API tokens.
+
+Credentials are used in pipelines securely without exposing secrets.
+
+Example credential usage in pipeline:
+
+```groovy id="q4xpkv"
+withCredentials([string(credentialsId: 'token', variable: 'TOKEN')]) {
+    sh 'echo $TOKEN'
+}
+```
+
+## Jenkins Security
+
+Jenkins supports authentication and authorization.
+
+Role-Based Access Control called RBAC controls user permissions.
+
+HTTPS secures Jenkins communication.
+
+Plugins should be updated regularly for security patches.
+
+Sensitive credentials should be stored securely using Jenkins Credentials Manager.
+
+## Jenkins Backup
+
+Backup is important for Jenkins configuration recovery.
+
+Important backup directories are:
+
+```text id="m7jzvc"
+/var/lib/jenkins
+```
+
+Backup includes jobs, plugins, credentials, and build history.
+
+## Jenkins Monitoring
+
+Monitor Jenkins server health, CPU, memory, and build performance.
+
+Jenkins logs help troubleshoot build failures.
+
+Check Jenkins logs:
+
+```bash id="h6tr0r"
+journalctl -u jenkins
+```
+
+## Jenkins CLI Commands
+
+Restart Jenkins:
+
+```bash id="65dnxq"
+sudo systemctl restart jenkins
+```
+
+Stop Jenkins:
+
+```bash id="c71z9j"
+sudo systemctl stop jenkins
+```
+
+Start Jenkins:
+
+```bash id="1hm5ja"
+sudo systemctl start jenkins
+```
+
+Check service status:
+
+```bash id="uqv6pr"
+systemctl status jenkins
+```
+
+## Jenkins Advantages
+
+Jenkins automates CI/CD workflows efficiently.
+
+Jenkins supports thousands of plugins and integrations.
+
+Jenkins improves software delivery speed and consistency.
+
+Jenkins supports distributed and scalable builds.
+
+Jenkins integrates with cloud and container technologies easily.
+
+Jenkins pipelines support Infrastructure as Code concepts.
+
+## Jenkins Limitations
+
+Jenkins setup and maintenance can become complex in large environments.
+
+Too many plugins may create compatibility issues.
+
+Jenkins UI may feel outdated compared to modern CI/CD tools.
+
+Managing Jenkins security and scalability requires proper planning.
+
+## Jenkins Workflow
+
+Developer pushes code to Git repository.
+
+Git webhook triggers Jenkins pipeline automatically.
+
+Jenkins pulls latest source code.
+
+Jenkins builds application using build tools like Maven or Gradle.
+
+Jenkins executes automated tests.
+
+Jenkins performs security scans and quality checks.
+
+Jenkins builds Docker Images if required.
+
+Jenkins pushes artifacts or images to repositories.
+
+Jenkins deploys applications to servers or Kubernetes clusters.
+
+Jenkins monitors deployment status and logs.
