@@ -207,49 +207,44 @@ Example: `man grep`
 These commands form the foundation of Linux usage. Once you master these basics, you can combine them to perform more complex tasks!
 # Complete Linux Commands Reference Guide
 
-Here's a comprehensive guide covering all the major Linux command categories with detailed explanations and examples:
-
----
-
 ## 1. **File & Directory Management**
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `pwd` | Print working directory | `pwd` |
-| `ls` | List files and directories | `ls -la` (detailed listing) |
-| `cd` | Change directory | `cd /home/user/Documents` |
-| `mkdir` | Create directory | `mkdir newfolder` |
-| `rmdir` | Remove empty directory | `rmdir emptyfolder` |
-| `cp` | Copy files/directories | `cp file.txt backup.txt` or `cp -r dir1/ dir2/` |
-| `mv` | Move/rename files | `mv oldname.txt newname.txt` |
-| `rm` | Remove files/directories | `rm file.txt` or `rm -r folder/` |
-| `touch` | Create empty file | `touch newfile.txt` |
-| `cat` | Display file contents | `cat file.txt` |
-| `less`/`more` | View file page by page | `less large_file.txt` |
-| `find` | Search files | `find /home -name "*.txt"` |
+| Command | Definition / Explanation             | Why We Use It                                 | Example                   |
+| ------- | ------------------------------------ | --------------------------------------------- | ------------------------- |
+| `pwd`   | Shows current working directory path | To know current location in Linux file system | `pwd`                     |
+| `ls`    | Lists files and directories          | To view files and folders                     | `ls -l`(permission) `ls                    |
+| `cd`    | Changes directory                    | To move between folders                       | `cd /var/log`             |
+| `mkdir` | Creates new directory                | To create folders                             | `mkdir devops`            |
+| `touch` | Creates empty file                   | To create files quickly                       | `touch file.txt`          |
+| `cp`    | Copies files or directories          | To create backups or duplicates               | `cp file.txt backup.txt`  |
+| `mv`    | Moves or renames files               | To organize or rename files                   | `mv file.txt new.txt`     |
+| `rm`    | Removes files or directories         | To delete unwanted files                      | `rm -rf project`          |
+| `cat`   | Displays file content                | To read file content                          | `cat file.txt`            |
+| `find`  | Searches files and directories       | To locate files in system                     | `find / -name nginx.conf` |
+
 
 ---
 
 ## 2. **User Management**
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `useradd` | Add new user | `sudo useradd john` |
-| `usermod` | Modify user info | `sudo usermod -aG sudo john` (add to sudo group) |
-| `userdel` | Delete user | `sudo userdel john` |
-| `passwd` | Set/change password | `passwd username` |
-| `groupadd` | Create new group | `sudo groupadd developers` |
-| `usermod -aG` | Add user to group | `sudo usermod -aG developers john` |
-| `groups` | Show user groups | `groups username` |
-| `id` | Display user ID info | `id username` |
-| `whoami` | Current logged-in user | `whoami` |
-| `who` | All logged-in users | `who` |
-| `su` | Switch user | `su - username` |
-| `sudo` | Run as superuser | `sudo apt update` |
+| Command    | Definition / Explanation     | Why We Use It                      | Example                    |
+| ---------- | ---------------------------- | ---------------------------------- | -------------------------- |
+| `whoami`   | Shows current logged-in user | To verify current user             | `whoami`                   |
+| `id`       | Displays user and group IDs  | To check user information          | `id`                       |
+| `useradd`  | Creates new user             | To create user accounts            | `sudo useradd devops`      |
+| `passwd`   | Sets or changes password     | To manage authentication           | `sudo passwd devops`       |
+| `userdel`  | Deletes user                 | To remove unused accounts          | `sudo userdel devops`      |
+| `groupadd` | Creates new group            | To manage permissions using groups | `sudo groupadd developers` |
 
 ---
 
 ## 3. **File Permissions**
+| Command | Definition / Explanation | Why We Use It               | Example                     |
+| ------- | ------------------------ | --------------------------- | --------------------------- |
+| `ls -l` | Shows file permissions   | To check file access rights | `ls -l`                     |
+| `chmod` | Changes file permissions | To control file access      | `chmod 755 script.sh`       |
+| `chown` | Changes file owner       | To manage ownership         | `chown user:user file.txt`  |
+| `chgrp` | Changes group ownership  | To manage group permissions | `chgrp developers file.txt` |
 
 ### **Understanding Permissions**
 
@@ -327,20 +322,15 @@ chown -R username directory/            # Recursive (for directories)
 
 ## 4. **Process Management**
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `ps` | List processes | `ps aux` (all processes with details) |
-| `ps -ef` | Tree format | `ps -ef --forest` |
-| `ps -u` | User's processes | `ps -u username` |
-| `top` | Real-time processes | `top` (live monitoring) |
-| `htop` | Enhanced top | `htop` (colorized, interactive) |
-| `kill` | Terminate process | `kill 1234` (graceful) or `kill -9 1234` (force) |
-| `killall` | Kill by name | `killall firefox` |
-| `bg` | Run in background | `bg %1` |
-| `fg` | Bring to foreground | `fg %1` |
-| `jobs` | List background jobs | `jobs` |
-| `pgrep` | Find process by name | `pgrep firefox` |
-| `systemctl` | Service control | `systemctl status nginx` |
+| Command   | Definition / Explanation     | Why We Use It                   | Example        |
+| --------- | ---------------------------- | ------------------------------- | -------------- |
+| `ps -ef`  | Displays running processes   | To monitor processes            | `ps -ef`       |
+| `top`     | Shows real-time processes    | To monitor CPU and memory usage | `top`          |
+| `htop`    | Interactive process viewer   | Easier monitoring than top      | `htop`         |
+| `kill`    | Stops process using PID      | To stop problematic process     | `kill 1234`    |
+| `kill -9` | Force kills process          | To stop stuck processes         | `kill -9 1234` |
+| `pgrep`   | Finds PID using process name | To search processes quickly     | `pgrep nginx`  |
+
 
 ### **Kill Signal Types**
 
@@ -355,21 +345,16 @@ kill -0 PID     # Check if process exists (no signal)
 
 ## 5. **Networking**
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `ip addr` | Show IP addresses | `ip addr show` |
-| `ip route` | Show routing table | `ip route show` |
-| `ifconfig` | Display network interfaces | `ifconfig` (legacy) |
-| `ping` | Test connectivity | `ping google.com` |
-| `netstat` | Network statistics | `netstat -tuln` (show open ports) |
-| `ss` | Socket statistics | `ss -tuln` (modern replacement) |
-| `nslookup` | DNS lookup | `nslookup google.com` |
-| `dig` | Advanced DNS lookup | `dig google.com` |
-| `traceroute` | Trace route to host | `traceroute google.com` |
-| `wget` | Download file | `wget https://example.com/file.zip` |
-| `curl` | Transfer data | `curl https://example.com` |
-| `nmcli` | Network Manager CLI | `nmcli con show` |
-| `hostname` | Show hostname | `hostname` or `hostnamectl` |
+| Command      | Definition / Explanation         | Why We Use It                        | Example                             |
+| ------------ | -------------------------------- | ------------------------------------ | ----------------------------------- |
+| `ip addr`    | Displays IP addresses            | To check network configuration       | `ip addr`                           |
+| `ping`       | Tests network connectivity       | To verify internet/server connection | `ping google.com`                   |
+| `ss -tulnp`  | Shows open ports and connections | To monitor network services          | `ss -tulnp`                         |
+| `curl`       | Sends HTTP/API requests          | To test APIs and websites            | `curl google.com`                   |
+| `wget`       | Downloads files from internet    | To download packages/scripts         | `wget https://example.com/file.zip` |
+| `nslookup`   | Checks DNS resolution            | To troubleshoot DNS issues           | `nslookup google.com`               |
+| `traceroute` | Shows network routing path       | To troubleshoot network latency      | `traceroute google.com`             |
+
 | `whois` | Domain info | `whois example.com` |
 
 ### **Common Networking Examples**
@@ -398,19 +383,13 @@ wget https://example.com/file.zip
 
 ## 6. **Disk & Memory**
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `df` | Disk space usage | `df -h` (human-readable) |
-| `df -i` | Inode usage | `df -i` |
-| `du` | Directory size | `du -sh /home/user` |
-| `du -sh *` | Size of all items | `du -sh *` (in current directory) |
-| `free` | Memory usage | `free -h` (human-readable) |
-| `free -m` | Memory in MB | `free -m` |
-| `vmstat` | Virtual memory stats | `vmstat 1 5` (5 samples, 1 sec apart) |
-| `iostat` | I/O statistics | `iostat -x 1` |
-| `lsblk` | Block device info | `lsblk` |
-| `fdisk` | Partition management | `sudo fdisk -l` |
-| `parted` | Partition editor | `sudo parted /dev/sda print` |
+| Command   | Definition / Explanation   | Why We Use It                 | Example           |
+| --------- | -------------------------- | ----------------------------- | ----------------- |
+| `df -h`   | Shows disk usage           | To monitor storage space      | `df -h`           |
+| `free -h` | Shows memory usage         | To check RAM availability     | `free -h`         |
+| `du -sh`  | Shows directory size       | To identify large directories | `du -sh /var/log` |
+| `lsblk`   | Lists storage devices      | To view disks and partitions  | `lsblk`           |
+| `mount`   | Shows mounted file systems | To manage storage mounts      | `mount`           |
 
 ### **Memory and Disk Examples**
 
@@ -447,6 +426,16 @@ du -sh /home/user/* | sort -hr | head -10
 | `systemctl is-active` | Check if running | `systemctl is-active nginx` |
 | `systemctl is-enabled` | Check if enabled | `systemctl is-enabled nginx` |
 
+| Command             | Definition / Explanation      | Why We Use It                   | Example                        |
+| ------------------- | ----------------------------- | ------------------------------- | ------------------------------ |
+| `systemctl status`  | Shows service status          | To verify application health    | `systemctl status nginx`       |
+| `systemctl start`   | Starts service                | To run applications             | `sudo systemctl start nginx`   |
+| `systemctl stop`    | Stops service                 | To safely stop applications     | `sudo systemctl stop nginx`    |
+| `systemctl restart` | Restarts service              | To apply configuration changes  | `sudo systemctl restart nginx` |
+| `systemctl reload`  | Reloads service configuration | To apply config without restart | `sudo systemctl reload nginx`  |
+| `systemctl enable`  | Starts service during boot    | To auto-start services          | `sudo systemctl enable nginx`  |
+
+
 ### **Service Management Examples**
 
 ```bash
@@ -468,21 +457,23 @@ sudo systemctl disable apache2
 ---
 
 ## 8. **Package Management (apt)**
+| Command       | Definition / Explanation    | Why We Use It                           | Example                     |
+| ------------- | --------------------------- | --------------------------------------- | --------------------------- |
+| `apt update`  | Updates package list        | To refresh repository information       | `sudo apt update`           |
+| `apt upgrade` | Upgrades installed packages | To update software and security patches | `sudo apt upgrade -y`       |
+| `apt install` | Installs packages           | To install applications                 | `sudo apt install nginx -y` |
+| `apt remove`  | Removes packages            | To uninstall software                   | `sudo apt remove nginx -y`  |
+| `apt search`  | Searches available packages | To find software packages               | `apt search docker`         |
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `apt update` | Refresh package list | `sudo apt update` |
-| `apt upgrade` | Upgrade packages | `sudo apt upgrade` |
-| `apt install` | Install package | `sudo apt install git` |
-| `apt remove` | Remove package | `sudo apt remove nano` |
+
 | `apt purge` | Remove + config | `sudo apt purge nano` |
-| `apt search` | Search package | `apt search nodejs` |
 | `apt show` | Package info | `apt show git` |
 | `apt list` | List packages | `apt list --installed` |
 | `apt autoremove` | Remove unused deps | `sudo apt autoremove` |
 | `apt clean` | Clean cache | `sudo apt clean` |
 | `dpkg -l` | List installed | `dpkg -l` |
 | `dpkg -i` | Install .deb file | `sudo dpkg -i package.deb` |
+
 
 ### **Package Management Examples**
 
@@ -511,6 +502,14 @@ sudo apt clean
 ---
 
 ## 9. **Log Monitoring**
+| Command      | Definition / Explanation       | Why We Use It                | Example                      |
+| ------------ | ------------------------------ | ---------------------------- | ---------------------------- |
+| `tail -f`    | Displays live log updates      | To monitor logs in real time | `tail -f /var/log/syslog`    |
+| `journalctl` | Displays systemd logs          | To troubleshoot services     | `journalctl -u nginx`        |
+| `grep`       | Searches text patterns         | To find errors in logs       | `grep ERROR /var/log/syslog` |
+| `less`       | Views large files page by page | To safely read logs          | `less /var/log/syslog`       |
+| `head`       | Displays first lines of file   | To preview log start         | `head /var/log/syslog`       |
+| `tail`       | Displays last lines of file    | To check recent logs         | `tail /var/log/syslog`       |
 
 | Command | Purpose | Example |
 |---------|---------|---------|
