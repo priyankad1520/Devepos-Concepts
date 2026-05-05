@@ -1,4 +1,419 @@
-# 🚀 NGINX Zero to Hero
+# Nginx Full Concepts
+
+Nginx is an open-source web server, reverse proxy server, load balancer, and HTTP cache server.
+
+Nginx is widely used for hosting websites, handling web traffic, reverse proxying applications, load balancing, SSL termination, and API gateway functionality.
+
+Nginx is known for high performance, scalability, low memory usage, and handling large numbers of concurrent connections efficiently.
+
+Nginx is commonly used in DevOps, cloud computing, Kubernetes, microservices, and production web environments.
+
+## Why Nginx is Used
+
+Nginx serves static and dynamic web content efficiently.
+
+Nginx acts as a reverse proxy for backend applications.
+
+Nginx distributes traffic using load balancing.
+
+Nginx handles SSL/TLS encryption for HTTPS communication.
+
+Nginx improves performance using caching and compression.
+
+Nginx manages high traffic efficiently with low resource usage.
+
+## Nginx Architecture
+
+Nginx follows an event-driven asynchronous architecture.
+
+Nginx uses a Master Process and multiple Worker Processes.
+
+### Master Process
+
+The Master Process manages configuration files, worker processes, and system signals.
+
+The Master Process starts and controls worker processes.
+
+### Worker Process
+
+Worker Processes handle client requests and responses.
+
+Worker processes efficiently handle thousands of simultaneous connections.
+
+Nginx uses non-blocking I/O for high performance.
+
+## How Nginx Works
+
+Client sends HTTP or HTTPS request to Nginx server.
+
+Nginx receives the request using configured ports like `80` or `443`.
+
+Nginx processes the request based on configuration rules.
+
+Nginx either serves static files directly or forwards requests to backend applications.
+
+Nginx sends response back to the client efficiently.
+
+## Nginx Installation
+
+Install Nginx on Ubuntu:
+
+```bash id="jlwm1a"
+sudo apt update
+sudo apt install nginx -y
+```
+
+Start Nginx service:
+
+```bash id="’wini2b"
+sudo systemctl start nginx
+```
+
+Enable Nginx during boot:
+
+```bash id="’wini3c"
+sudo systemctl enable nginx
+```
+
+Check Nginx service status:
+
+```bash id="’wini4d"
+systemctl status nginx
+```
+
+Check Nginx version:
+
+```bash id="’wini5e"
+nginx -v
+```
+
+## Nginx Default Ports
+
+Port `80` is used for HTTP communication.
+
+Port `443` is used for HTTPS communication.
+
+## Nginx Configuration Files
+
+Main configuration file:
+
+```text id="’wini6f"
+/etc/nginx/nginx.conf
+```
+
+Site configuration directory:
+
+```text id="’wini7g"
+/etc/nginx/sites-available/
+```
+
+Enabled site configurations:
+
+```text id="’wini8h"
+/etc/nginx/sites-enabled/
+```
+
+## Nginx Basic Configuration
+
+Example server block:
+
+```nginx id="’wini9i"
+server {
+    listen 80;
+
+    server_name example.com;
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}
+```
+
+`listen` defines the port number.
+
+`server_name` defines domain name.
+
+`location` defines URL path handling rules.
+
+`root` defines website file location.
+
+`index` defines default webpage file.
+
+## Test Nginx Configuration
+
+Check configuration syntax:
+
+```bash id="’wini0j"
+nginx -t
+```
+
+Reload Nginx configuration:
+
+```bash id="’wini1k"
+sudo systemctl reload nginx
+```
+
+Restart Nginx service:
+
+```bash id="’wini2l"
+sudo systemctl restart nginx
+```
+
+## Web Server
+
+Nginx serves static files like HTML, CSS, JavaScript, images, and videos.
+
+Nginx can host websites directly from server directories.
+
+Example website directory:
+
+```text id="’wini3m"
+/var/www/html
+```
+
+## Reverse Proxy
+
+Reverse Proxy forwards client requests to backend applications.
+
+Clients interact with Nginx instead of directly accessing backend servers.
+
+Nginx improves security and performance for backend services.
+
+Example reverse proxy configuration:
+
+```nginx id="’wini4n"
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}
+```
+
+Nginx forwards requests to application running on port `3000`.
+
+## Load Balancing
+
+Load Balancing distributes traffic across multiple backend servers.
+
+Load balancing improves availability, scalability, and fault tolerance.
+
+Example load balancer configuration:
+
+```nginx id="’wini5o"
+upstream backend {
+    server 192.168.1.10;
+    server 192.168.1.11;
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://backend;
+    }
+}
+```
+
+## Load Balancing Methods
+
+Round Robin distributes requests sequentially across servers.
+
+Least Connections sends traffic to server with least active connections.
+
+IP Hash sends requests from same client IP to same backend server.
+
+## SSL/TLS Configuration
+
+Nginx supports HTTPS using SSL/TLS certificates.
+
+SSL/TLS encrypts communication between client and server securely.
+
+Example HTTPS configuration:
+
+```nginx id="’wini6p"
+server {
+    listen 443 ssl;
+
+    ssl_certificate /etc/nginx/cert.pem;
+    ssl_certificate_key /etc/nginx/key.pem;
+}
+```
+
+## Redirect HTTP to HTTPS
+
+Example redirect configuration:
+
+```nginx id="’wini7q"
+server {
+    listen 80;
+    return 301 https://$host$request_uri;
+}
+```
+
+## Nginx Caching
+
+Nginx supports caching to improve performance and reduce backend load.
+
+Caching stores frequently accessed responses temporarily.
+
+Nginx can cache static files, APIs, and proxy responses.
+
+## Compression
+
+Nginx supports Gzip compression for reducing response size.
+
+Compression improves website loading speed and bandwidth usage.
+
+Enable Gzip:
+
+```nginx id="’wini8r"
+gzip on;
+```
+
+## Nginx Logs
+
+Access logs store successful client requests.
+
+Error logs store failures and server issues.
+
+Access log location:
+
+```text id="’wini9s"
+/var/log/nginx/access.log
+```
+
+Error log location:
+
+```text id="’wini0t"
+/var/log/nginx/error.log
+```
+
+View logs:
+
+```bash id="’wini1u"
+tail -f /var/log/nginx/access.log
+```
+
+## Nginx Security
+
+Use HTTPS for encrypted communication.
+
+Disable unnecessary modules and ports.
+
+Restrict access using firewall rules.
+
+Use rate limiting to prevent DDoS attacks.
+
+Hide server version information for security.
+
+Example:
+
+```nginx id="’wini2v"
+server_tokens off;
+```
+
+## Rate Limiting
+
+Rate limiting controls request frequency from clients.
+
+Rate limiting helps prevent abuse and attacks.
+
+Example:
+
+```nginx id="’wini3w"
+limit_req_zone $binary_remote_addr zone=mylimit:10m rate=5r/s;
+```
+
+## Nginx in Docker
+
+Nginx commonly runs inside Docker containers.
+
+Run Nginx container:
+
+```bash id="’wini4x"
+docker run -d -p 80:80 nginx
+```
+
+## Nginx in Kubernetes
+
+Nginx is widely used as Kubernetes Ingress Controller.
+
+NGINX Ingress Controller manages HTTP and HTTPS routing inside Kubernetes clusters.
+
+Ingress routes traffic to Kubernetes Services.
+
+## Nginx Commands
+
+Start Nginx:
+
+```bash id="’wini5y"
+sudo systemctl start nginx
+```
+
+Stop Nginx:
+
+```bash id="’wini6z"
+sudo systemctl stop nginx
+```
+
+Restart Nginx:
+
+```bash id="’wini7a"
+sudo systemctl restart nginx
+```
+
+Reload Nginx:
+
+```bash id="’wini8b"
+sudo systemctl reload nginx
+```
+
+Check status:
+
+```bash id="’wini9c"
+systemctl status nginx
+```
+
+## Nginx Advantages
+
+Nginx provides high performance and scalability.
+
+Nginx handles large traffic efficiently.
+
+Nginx uses low CPU and memory resources.
+
+Nginx supports reverse proxy and load balancing.
+
+Nginx supports SSL/TLS and caching features.
+
+Nginx integrates with Docker, Kubernetes, and cloud environments easily.
+
+## Nginx Limitations
+
+Complex configurations may become difficult for beginners.
+
+Dynamic content processing usually requires external application servers like PHP-FPM.
+
+Advanced debugging may require deeper networking knowledge.
+
+## Nginx Workflow
+
+Client sends HTTP or HTTPS request.
+
+Nginx receives request on configured port.
+
+Nginx checks configuration rules.
+
+Nginx serves static files or forwards requests to backend servers.
+
+Load balancing distributes traffic if multiple backend servers exist.
+
+SSL/TLS secures communication if HTTPS is enabled.
+
+Nginx sends optimized response back to the client efficiently.# 🚀 NGINX Zero to Hero
 
 **Beginner-Friendly Guide for DevOps and Cloud Engineers**
 
