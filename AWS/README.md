@@ -1,3 +1,4 @@
+<img width="1024" height="1536" alt="AWS" src="https://github.com/user-attachments/assets/372fb059-595f-47df-ae80-16698de5ffab" />
 # aws-devops-zero-to-hero
 
 Complete YouTube playlist - https://www.youtube.com/playlist?list=PLdpzxOOAlwvLNOxX0RfndiYSt1Le9azze
