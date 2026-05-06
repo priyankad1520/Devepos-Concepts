@@ -67,9 +67,9 @@ Memory = 1Gi
 
 ---
 ### Simple Real-Time Example
-- HPA: Imagine an e-commerce website during sale time. More users come → Kubernetes creates more pods automatically.Example: 2 Pods → 5 Pods
+- HPA: Imagine an e-commerce website during sale time. More users come → Kubernetes creates more pods automatically.
 - VPA: One application needs more memory. Instead of creating new pods, Kubernetes increases RAM/CPU for the existing pod.
-- Cluster Autoscaler: Cluster Autoscaler automatically increases or decreases worker nodes when the cluster lacks resources. Example: 2 Nodes → 5 Nodes
+- Cluster Autoscaler: Cluster Autoscaler automatically increases or decreases worker nodes when the cluster lacks resources. 
 ### Important Note. Usually:
 * HPA is more commonly used in production.
 * VPA may restart pods while changing resources.
