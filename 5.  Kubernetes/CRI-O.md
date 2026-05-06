@@ -10,6 +10,23 @@ It is used to run containers inside Kubernetes.
 
 > "CRI-O is a container runtime that helps Kubernetes run containers."
 
+## Container Runtime
+
+A container runtime is the software responsible for running and managing containers on a system.
+
+It handles:
+
+* Starting containers
+* Stopping containers
+* Managing container resources
+* Isolating containers
+
+Examples:
+
+* Docker
+* containerd
+* CRI-O
+
 ---
 
 # Why CRI-O Came?
