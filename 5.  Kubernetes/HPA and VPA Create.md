@@ -1,3 +1,80 @@
+## HPA (Horizontal Pod Autoscaler)
+HPA automatically increases or decreases the number of pods in a Kubernetes cluster based on CPU, memory, or custom metrics usage.
+
+### Why We Use HPA
+We use HPA to:
+* Handle high traffic automatically
+* Improve application performance
+* Reduce manual scaling
+* Save resources during low traffic
+
+```bash id="88bpb6"
+# Example:
+If CPU usage becomes high:2 Pods  →  5 Pods
+If traffic decreases: 5 Pods  →  2 Pods
+
+# HPA Command
+kubectl autoscale deployment nginx --cpu-percent=70 --min=2 --max=10
+
+Meaning:
+* Minimum pods = 2
+* Maximum pods = 10
+* Scale when CPU reaches 70%
+```
+
+# VPA (Vertical Pod Autoscaler)
+VPA automatically increases or decreases CPU and memory resources of a pod based on usage.
+
+### Why We Use VPA
+We use VPA to:
+* Optimize CPU and memory usage
+* Prevent resource wastage
+* Avoid pod crashes due to low memory
+* Improve application stability
+```text id="ql6s4p"
+# Example
+# Before scaling:
+CPU = 500m
+Memory = 512Mi
+
+# After VPA adjustment:
+CPU = 1 CPU
+Memory = 1Gi
+
+# Pod count remains same, only resources increase.
+```
+---
+
+### Main Difference
+
+| Feature      | HPA                       | VPA                              |
+| ------------ | ------------------------- | -------------------------------- |
+| Full Form    | Horizontal Pod Autoscaler | Vertical Pod Autoscaler          |
+| Scaling Type | Adds/removes pods         | Increases/decreases CPU & memory |
+| Changes      | Number of pods            | Pod resources                    |
+| Usage        | Handle traffic load       | Optimize resource usage          |
+| Example      | 2 pods → 5 pods           | 512Mi → 1Gi memory               |
+
+| Feature   | HPA                        | Cluster Autoscaler             |
+| --------- | -------------------------- | ------------------------------ |
+| Full Form | Horizontal Pod Autoscaler  | Cluster Autoscaler             |
+| Scales    | Pods                       | Nodes                          |
+| Works On  | Application level          | Infrastructure level           |
+| Purpose   | Handle application traffic | Provide more cluster resources |
+| Increases | Number of pods             | Number of worker nodes         |
+| Trigger   | High CPU/memory usage      | Insufficient node resources    |
+| Example   | 2 Pods → 5 Pods            | 2 Nodes → 5 Nodes              |
+
+---
+### Simple Real-Time Example
+- HPA: Imagine an e-commerce website during sale time. More users come → Kubernetes creates more pods automatically.Example: 2 Pods → 5 Pods
+- VPA: One application needs more memory. Instead of creating new pods, Kubernetes increases RAM/CPU for the existing pod.
+- Cluster Autoscaler: Cluster Autoscaler automatically increases or decreases worker nodes when the cluster lacks resources. Example: 2 Nodes → 5 Nodes
+### Important Note. Usually:
+* HPA is more commonly used in production.
+* VPA may restart pods while changing resources.
+* HPA + Cluster Autoscaler are commonly used together.
+
 # How to Create HPA in Kubernetes
 
 Kubernetes HPA called Horizontal Pod Autoscaler automatically increases or decreases Pod replicas based on CPU, memory, or custom metrics.
