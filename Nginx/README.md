@@ -1,3 +1,224 @@
+In Kubernetes, NGINX is used in many places because it is lightweight, fast, and handles HTTP traffic very efficiently.
+
+NGINX is mainly used as a web server, reverse proxy, load balancer, ingress controller, and API gateway inside the Kubernetes cluster.
+
+---
+
+## 1. NGINX as a Web Server
+
+Sometimes applications like React, Angular, or static websites are packaged inside an NGINX container and deployed as a Pod.
+
+Example:
+
+```bash id="isjlwm"
+docker run nginx
+```
+
+In Kubernetes:
+
+```yaml id="g5u6g8"
+containers:
+  - name: nginx
+    image: nginx
+```
+
+Here NGINX serves:
+
+* HTML files
+* CSS
+* JavaScript
+* Static content
+
+---
+
+## 2. NGINX as Reverse Proxy
+
+In microservices architecture, users should not directly access backend services.
+
+NGINX sits in front of applications and forwards requests to correct services.
+
+Flow:
+
+```text id="qqhrrv"
+User Request → NGINX → Backend Application
+```
+
+Example:
+
+```text id="5mmb8g"
+User → NGINX → Python App
+               → NodeJS App
+               → Java App
+```
+
+NGINX hides backend services and manages traffic routing.
+
+---
+
+## 3. NGINX as Load Balancer
+
+If multiple Pods of same application exist, NGINX distributes traffic among them.
+
+Example:
+
+```text id="h34p4l"
+User Request
+      ↓
+    NGINX
+   ↙  ↓  ↘
+Pod1 Pod2 Pod3
+```
+
+Benefits:
+
+* Prevents one Pod from overload
+* Improves availability
+* Improves scalability
+
+---
+
+## 4. NGINX Ingress Controller (Very Important in Kubernetes)
+
+This is the most common use of NGINX in Kubernetes.
+
+Kubernetes Service exposes applications internally, but external traffic needs routing rules.
+
+Ingress + NGINX Controller manages external HTTP/HTTPS traffic.
+
+Flow:
+
+```text id="pr11xn"
+Internet → NGINX Ingress Controller → Kubernetes Services → Pods
+```
+
+Example:
+
+```text id="a6b4i0"
+example.com/api  → API Service
+example.com/app  → Frontend Service
+```
+
+NGINX Ingress Controller handles:
+
+* URL routing
+* SSL/TLS
+* HTTPS termination
+* Load balancing
+* Path-based routing
+* Host-based routing
+
+---
+
+## 5. NGINX for SSL/TLS Termination
+
+NGINX decrypts HTTPS traffic before sending it to backend Pods.
+
+Flow:
+
+```text id="7ql6m7"
+HTTPS Request → NGINX → HTTP → Backend Pods
+```
+
+Benefits:
+
+* Backend apps become simpler
+* Centralized SSL management
+
+---
+
+## 6. NGINX as API Gateway
+
+Sometimes NGINX acts as entry point for APIs.
+
+It can provide:
+
+* Authentication
+* Rate limiting
+* Security headers
+* Request filtering
+* API routing
+
+---
+
+# Real Kubernetes Architecture Example
+
+```text id="t0vw0n"
+Internet User
+      ↓
+Load Balancer
+      ↓
+NGINX Ingress Controller
+      ↓
+Kubernetes Service
+      ↓
+Application Pods
+```
+
+---
+
+# Why Companies Use NGINX in Kubernetes
+
+Because it is:
+
+* Fast
+* Lightweight
+* Stable
+* Easy to configure
+* Open source
+* Supports high traffic
+* Works well with microservices
+
+---
+
+# Common NGINX Kubernetes Components
+
+| Component                | Purpose                    |
+| ------------------------ | -------------------------- |
+| NGINX Pod                | Runs web server            |
+| NGINX Deployment         | Manages replicas           |
+| NGINX Service            | Exposes NGINX internally   |
+| NGINX Ingress Controller | Manages external traffic   |
+| ConfigMap                | Stores NGINX configuration |
+
+---
+
+# Common Commands
+
+### Deploy NGINX Pod
+
+```bash id="97yd9o"
+kubectl create deployment nginx --image=nginx
+```
+
+---
+
+### Expose NGINX Service
+
+```bash id="lj87v7"
+kubectl expose deployment nginx --port=80 --type=NodePort
+```
+
+---
+
+### Check NGINX Pods
+
+```bash id="i6ayh9"
+kubectl get pods
+```
+
+---
+
+### Check NGINX Service
+
+```bash id="rbrb81"
+kubectl get svc
+```
+
+---
+
+# Interview One-Line Answer
+
+“In Kubernetes, NGINX is mainly used as a reverse proxy, load balancer, web server, and Ingress Controller to manage external traffic and route requests to applications running inside the cluster.”
 # Nginx Full Concepts
 
 Nginx is an open-source web server, reverse proxy server, load balancer, and HTTP cache server.
