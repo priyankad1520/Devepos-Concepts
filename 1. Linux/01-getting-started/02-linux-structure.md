@@ -1,5 +1,6 @@
 # Core components of a Linux Machine
 
+```
 +----------------------------------------------------+
 | User Applications (Vim, Docker, Apache, etc.)     |
 +----------------------------------------------------+
@@ -13,15 +14,16 @@
 +----------------------------------------------------+
 | Hardware (CPU, RAM, Disk, Network, Peripherals)   |
 +----------------------------------------------------+
-
+```
 
 (a) Hardware Layer
 
-🔹 The physical components of the computer (CPU, RAM, disk, network interfaces, etc.).
-🔹 The OS interacts with hardware using device drivers.
+- The physical components of the computer (CPU, RAM, disk, network interfaces, etc.).
+- The OS interacts with hardware using device drivers.
+
 (b) Kernel (Core of Linux OS)
 
-🔹 The Linux Kernel is responsible for directly managing system resources, including:
+The Linux Kernel is responsible for directly managing system resources, including:
 
     Process Management – Schedules processes and handles multitasking.
 
@@ -35,10 +37,10 @@
 
 (c) Shell (Command Line Interface - CLI)
 
-🔹 A command interpreter that allows users to interact with the kernel.
-🔹 Examples: Bash, Zsh, Fish, Dash, Ksh.
-🔹 Converts user commands into system calls for the kernel.
+- A command interpreter that allows users to interact with the kernel.
+- Examples: Bash, Zsh, Fish, Dash, Ksh.
+- Converts user commands into system calls for the kernel.
 (d) User Applications
 
-🔹 End-user programs like web browsers, text editors, DevOps tools, etc.
-🔹 Applications interact with the OS using system calls via the shell or GUI.
+- End-user programs like web browsers, text editors, DevOps tools, etc.
+- Applications interact with the OS using system calls via the shell or GUI.
