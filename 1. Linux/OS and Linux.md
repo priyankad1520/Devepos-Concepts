@@ -41,6 +41,51 @@ When opening Chrome browser:
 Chrome Request --> Operating System --> CPU + RAM + Disk + Network
 OS allocates resources to Chrome.
 ```
+### CPU
+CPU is responsible for processing and executing instructions from applications and the operating system. For example, when we open Chrome or play a video, CPU performs the required processing tasks.
+
+CPU processes and executes instructions given by applications and users. For example, when we click the Chrome icon, CPU helps execute the operations required to open the browser. If we open Flipkart, watch videos, or click on “Add to Cart,” the CPU processes those actions. CPU usage shows how much processing power is being used by running applications and system tasks.
+
+CPU usage shows how much CPU power is being consumed by applications and processes.
+
+Because:
+* CPU usage does not directly mean application speed
+* It means how much processing work CPU is handling
+```
+## When You Click Chrome
+
+1. Chrome files are loaded from SSD/Disk
+2. RAM stores temporary working data
+3. CPU executes instructions
+4. Chrome opens on screen
+
+### Example: Watching Video
+
+CPU: Decodes video, Processes audio/video data, Handles browser tasks
+
+RAM:Holds temporary video data
+
+SSD:Stores browser and OS files
+
+```
+### SSD (Solid State Drive)/ Disk / Storage
+Disk is permanent storage used to save files and operating system data.
+```
+DISK Examples: HDD and SSD
+Example
+Files saved in:
+/home
+/var
+/etc
+are stored on disk. and Data remains even after shutdown.
+```
+SSD (Solid State Drive) is a fast permanent storage device used to store operating systems, applications, and files in a computer.
+
+### RAM
+RAM (Random Access Memory) is a temporary high-speed memory used to store data and applications currently being used by the CPU.
+
+When we open multiple applications and tabs, each process uses some portion of RAM to store active data temporarily so the CPU can access it quickly. More applications consume more RAM.
+
 ## concepts
 #### 1. Kernel: The Linux kernel is the core part of the operating system that manages hardware, memory, processes, and communication between software and hardware.
 #### 2. Linux File System: The Linux file system is the structure used to organize, store, and manage files and directories in Linux.
