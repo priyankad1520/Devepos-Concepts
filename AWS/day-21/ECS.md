@@ -131,3 +131,11 @@ Monitor your ECS service using AWS CloudWatch metrics and logs.
 ## 8. Conclusion
 
 In conclusion, AWS ECS offers a robust and user-friendly platform for deploying and managing containerized applications. We covered the fundamentals of ECS, compared it with its alternatives, discussed its pros and cons, and walked through the installation, configuration, and deployment of a sample application.
+# Login to ECR (replace <region> and <account-id> with your actual values)
+$ aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account-id>.dkr.ecr.<region>.amazonaws.com
+
+# Build the Docker image (replace <repo-name> with your ECR repository name)
+$ docker build -t <account-id>.dkr.ecr.<region>.amazonaws.com/<repo-name>:latest .
+
+# Push the Docker image to ECR (replace <repo-name> with your ECR repository name)
+$ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/<repo-name>:latest
