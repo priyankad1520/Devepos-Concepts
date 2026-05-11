@@ -172,7 +172,7 @@ $ man ls
 ---
 
 ### **13. `sudo` — Run as Superuser (Administrator)**
-Runs commands with superuser privileges.
+Runs commands with superuser privileges. sudo is used to run administrative commands securely so normal users cannot directly access or modify critical system settings.
 
 ```sh
 $ sudo apt update
