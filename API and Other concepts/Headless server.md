@@ -4,10 +4,13 @@ Headless Server is a server system that runs without a graphical user interface 
 
 Headless servers are managed remotely using command-line tools and network connections.
 
-Headless servers mainly use SSH for remote access and administration.
+Headless servers mainly use SSH for remote access and administration. "SSH is a secure remote access method used to connect to and manage a headless server."
 
 Headless servers are commonly used in cloud computing, data centers, DevOps, Kubernetes, Docker, and production server environments.
 
+A headless server does NOT mean the server has no keyboard support internally.
+
+It means the server itself does not have: Physical monitor, Mouse, Keyboard directly attached. But we control it remotely from another computer.
 ## Why Headless Servers are Used
 
 Headless servers consume fewer system resources because no graphical environment is running.
