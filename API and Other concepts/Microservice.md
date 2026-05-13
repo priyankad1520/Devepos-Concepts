@@ -218,3 +218,153 @@ Response data is returned through API Gateway to client.
 Monitoring and logging systems track requests and service health continuously.
 
 Container orchestration platforms manage scaling, deployment, and service recovery automatically.
+Usually, in microservice architecture, a single Kubernetes cluster manages multiple microservices.
+
+---
+
+# Simple Understanding
+
+```text id="1bjlwm"
+One Kubernetes Cluster
+        ↓
+Manages Many Microservices
+```
+
+Example:
+
+```text id="6gwjlwm"
+K8s Cluster
+   ├── User Service
+   ├── Payment Service
+   ├── Product Service
+   ├── Cart Service
+   └── Notification Service
+```
+
+---
+
+# Why Single Cluster?
+
+Because Kubernetes is designed to manage:
+
+* Multiple applications
+* Multiple pods
+* Multiple services
+
+inside one cluster efficiently.
+
+---
+
+# Real Example
+
+For a Flipkart-like application:
+
+```text id="z6j59m"
+Single K8s Cluster
+       ↓
+Frontend Pods
+Backend Pods
+Database Pods
+Monitoring Pods
+Logging Pods
+```
+
+---
+
+# How Services Are Separated?
+
+Using:
+
+| Method           | Purpose            |
+| ---------------- | ------------------ |
+| Namespace        | Isolation          |
+| Labels           | Pod identification |
+| Network Policies | Security           |
+| RBAC             | Access control     |
+
+---
+
+# Example
+
+```text id="r6grw4"
+Namespace: ecommerce
+   ├── user-service
+   ├── cart-service
+   └── payment-service
+```
+
+---
+
+# Do Companies Ever Use Multiple Clusters?
+
+Yes, sometimes.
+
+---
+
+# Multiple Cluster Scenarios
+
+| Scenario                | Reason                 |
+| ----------------------- | ---------------------- |
+| Dev/Test/Prod clusters  | Environment separation |
+| Different regions       | High availability      |
+| Security isolation      | Sensitive services     |
+| Very large applications | Scalability            |
+
+---
+
+# Example
+
+```text id="mjlwm7"
+Development Cluster
+Testing Cluster
+Production Cluster
+```
+
+or
+
+```text id="4gxg3s"
+US Cluster
+India Cluster
+Europe Cluster
+```
+
+---
+
+# Important Concept
+
+## Cluster ≠ Microservice
+
+One microservice does NOT usually need one separate cluster.
+
+Instead:
+
+```text id="4jlwm0"
+One Cluster
+      ↓
+Runs many microservices
+```
+
+---
+
+# Real Production Setup
+
+Large companies like Netflix may use:
+
+* Many clusters
+* Many namespaces
+* Thousands of microservices
+
+But each cluster still manages many services together.
+
+---
+
+# Interview Answer
+
+> "Usually, multiple microservices run inside a single Kubernetes cluster, and Kubernetes manages them using namespaces, deployments, and services. Large companies may use multiple clusters for environment separation, scalability, or security."
+
+"Multiple Kubernetes clusters are created across regions to reduce latency, improve availability, support disaster recovery, and handle global user traffic efficiently."
+
+
+Latency means the delay or time taken for data to travel from one system to another.
+
+Privilege means permission or access rights given to a user, application, or system.
