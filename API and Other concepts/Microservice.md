@@ -1,3 +1,10 @@
+"One worker node can run multiple pods based on the worker node’s CPU, memory, and resource capacity."
+| Microservice              | Pod                                 |
+| ------------------------- | ----------------------------------- |
+| Application functionality | Runtime unit in Kubernetes          |
+| Example: Payment Service  | Running instance of Payment Service |
+| Logical service           | Infrastructure object               |
+
 # Microservices Full Concepts
 
 Microservices Architecture is a software design approach where an application is divided into multiple small independent services.In microservices architecture, a service is a small independent application that performs a specific business function and communicates with other services through APIs.
