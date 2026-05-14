@@ -1,5 +1,12 @@
 # File management in Linux
 
+### How to excute shell script
+#!(Special interpreter indicator)/bin/bash(Path of Bash shell). #!/bin/bash is called a shebang. It tells Linux to execute the script using the Bash shell interpreter.
+- ./<filename.sh>
+- realpath <filename.sh> then copy the path then enter it will excute
+- bash <filename.sh>
+- sh <filename.sh>
+
 ### File and Directory Management
 1. **`ls`** – Lists files and directories in the current location.
 2. **`cd /path/to/directory`** – Changes the working directory.
