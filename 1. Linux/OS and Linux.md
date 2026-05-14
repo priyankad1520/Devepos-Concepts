@@ -174,6 +174,8 @@ Linux File System is important because it helps organize data efficiently, secur
 ## Shell
 Shell is a command-line interpreter in Linux, it allows users to communicate with the Operating System using commands. Shell scripting is used to automate repetitive tasks, such as backups, deployments, and monitoring. **The shell provides features like command history, tab completion, variables, loops, and conditions.** Environment variables in the shell store system information, such as user path and home directory.
 
+An interpreter is a program that reads, translates, and executes code line by line at runtime.
+
 Shell acts as a bridge between the user and the Linux kernel, it takes user commands and sends them to the kernel for execution. It reads commands entered by the user, processes them, and displays the output in the terminal. It can execute Linux commands, shell scripts, and automation tasks.
 
 Common Linux shells are Bash, Sh, Zsh, and Korn Shell. Bash stands for Bourne Again Shell, it is the default shell in many Linux distributions.
