@@ -6,6 +6,8 @@
 
 # Load Balancer
 
+"A load balancer distributes incoming traffic across multiple servers, EC2 instances, Kubernetes nodes, or pods to improve availability, scalability, and performance."
+
 Load Balancer is a networking component that distributes incoming traffic across multiple servers or applications.
 
 Load Balancer improves performance, scalability, reliability, and availability of applications.
