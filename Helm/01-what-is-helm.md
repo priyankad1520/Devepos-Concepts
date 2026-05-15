@@ -1,5 +1,22 @@
 # What is Helm?
+Helm is a package manager for Kubernetes used to simplify application deployment and management. or "Helm is a tool used to package, install, upgrade, and manage Kubernetes applications."  "Helm is a Kubernetes package manager that uses Helm charts to simplify application deployment, upgrades, configuration management, and rollbacks."
 
+helm use helm chart : A Helm chart is a collection of Kubernetes manifest templates.
+
+A Kubernetes manifest means Kubernetes configuration files, usually written in YAML format. or "A Kubernetes manifest is a YAML file used to define and create Kubernetes resources."
+
+> Simple Analogy: Helm = App installer for Kubernetes Like mobile app stores install apps easily, Helm installs Kubernetes applications easily.
+```
+Application Code
+      ↓
+Dockerfile
+      ↓
+Docker Image
+      ↓
+Helm Chart
+      ↓
+Kubernetes Deployment
+```
 ## Helm: The APT for Kubernetes
 
 Think of Helm as the "APT" or "YUM" for Kubernetes. Just like APT helps you manage software packages on a Linux system, Helm helps you manage applications on a Kubernetes cluster.
