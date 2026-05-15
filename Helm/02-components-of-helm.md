@@ -12,6 +12,199 @@ A **Helm chart** is a collection of files that describe a set of Kubernetes reso
 * **templates/**: Directory containing Kubernetes manifests as templates.
 * **charts/**: Directory for chart dependencies.
 * **README.md:** Optional documentation.
+# Components of a Helm Chart
+
+A Helm chart contains files and folders used to deploy applications in Kubernetes.
+
+---
+
+# Main Components
+
+| Component   | Purpose                       |
+| ----------- | ----------------------------- |
+| Chart.yaml  | Chart metadata                |
+| values.yaml | Custom configuration values   |
+| templates/  | Kubernetes manifest templates |
+| charts/     | Dependency charts             |
+| .helmignore | Ignore unnecessary files      |
+
+---
+
+# Helm Chart Structure
+
+```text id="v7m2k5"
+mychart/
+ ├── Chart.yaml
+ ├── values.yaml
+ ├── charts/
+ ├── templates/
+ └── .helmignore
+```
+
+---
+
+# 1. Chart.yaml
+
+Contains chart information.
+
+Example:
+
+```yaml id="p3x8n1"
+apiVersion: v2
+name: ecommerce
+version: 1.0.0
+description: Flipkart application
+```
+
+---
+
+## Purpose
+
+Stores:
+
+* Chart name
+* Version
+* Description
+* Dependencies
+
+---
+
+# 2. values.yaml
+
+Contains configurable values.
+
+Example:
+
+```yaml id="x5r1m7"
+replicaCount: 3
+
+image:
+  repository: nginx
+  tag: latest
+```
+
+---
+
+## Purpose
+
+Used to customize deployment without changing templates.
+
+Example:
+
+* Dev environment
+* Production environment
+
+---
+
+# 3. templates/
+
+Contains Kubernetes manifest templates.
+
+Example:
+
+```text id="k8m4q2"
+templates/
+   deployment.yaml
+   service.yaml
+   ingress.yaml
+```
+
+---
+
+## Purpose
+
+Helm dynamically generates Kubernetes YAML using template values.
+
+---
+
+# Example Template
+
+```yaml id="n2v9r4"
+replicas: {{ .Values.replicaCount }}
+```
+
+Helm replaces:
+
+```text id="y6m1k8"
+{{ .Values.replicaCount }}
+```
+
+with value from:
+
+```text id="q1r5v3"
+values.yaml
+```
+
+---
+
+# 4. charts/
+
+Contains dependency charts.
+
+Example:
+
+```text id="c4m8x7"
+charts/
+   mysql-chart
+```
+
+---
+
+## Purpose
+
+Used when one application depends on another.
+
+Example:
+
+```text id="d7p2n5"
+Application depends on MySQL
+```
+
+---
+
+# 5. .helmignore
+
+Like `.gitignore`.
+
+Used to ignore unnecessary files during chart packaging.
+
+Example:
+
+```text id="m9q3r1"
+.git/
+temp/
+```
+
+---
+
+# Real Deployment Flow
+
+```text id="t6x4k2"
+values.yaml
+      ↓
+Templates
+      ↓
+Helm Generates YAML
+      ↓
+Kubernetes Resources Created
+```
+
+---
+
+# Simple Understanding
+
+```text id="w3m7v9"
+Chart.yaml    → Information
+values.yaml   → Configurations
+templates/    → K8s YAML files
+charts/       → Dependencies
+```
+
+---
+
+# Interview One-Line Answer
+
+> "The main components of a Helm chart are Chart.yaml, values.yaml, templates, charts, and .helmignore, which together define and manage Kubernetes application deployments."
 
 ### **Creating a Chart:**
 
