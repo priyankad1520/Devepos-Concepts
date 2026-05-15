@@ -18,6 +18,73 @@ It is designed for high concurrency, performance, and low memory usage — makin
 
 ---
 
+### 1. Web Server
+A web server handles: HTML, CSS, JavaScript, Images, Static files
+
+Example: Nginx, Apache HTTP Server
+
+```text id="tf2q3f"
+Example: Browser requests: www.flipkart.com
+
+Web server sends: HTML page, CSS, Images
+```
+### 2. API
+
+API allows applications/services to communicate and exchange data.
+```text id="cv7xjz"
+Example: Mobile App → Request Product Data
+
+API returns:
+{
+  "name": "Laptop",
+  "price": 50000
+}
+
+# Example APIs
+GET /products
+POST /payment
+GET /orders
+```
+### 3. API Gateway
+
+API Gateway acts as a single entry point for multiple APIs/microservices.
+
+It: Receives requests, Routes traffic, Handles authentication, Rate limiting, Security
+
+```text id="nqjlwm"
+Example
+User Request
+      ↓
+API Gateway
+      ↓
+ ┌───────────────┐
+ │ User Service  │
+ │ Payment API   │
+ │ Product API   │
+ └───────────────┘
+```
+# Main Difference
+
+| Web Server | API | API Gateway |
+|---|---|
+| Serves webpages/files | Exchanges data | Manages APIs |
+| Mostly frontend content | Backend communication | Traffic controller |
+| Returns HTML | Returns JSON/XML | Routes requests |
+| Restaurant waiter serving food | Communication between kitchen and waiter| Reception manager controlling all requests |
+---
+### Important DevOps Understanding
+```text id="j40uvq"
+In microservices:
+
+Users
+   ↓
+Load Balancer
+   ↓
+Web Server / API Gateway
+   ↓
+Microservices APIs
+```
+
 ## 📊 NGINX vs Apache (Why DevOps Prefer NGINX)
 
 | Feature         | NGINX                          | Apache                      |
