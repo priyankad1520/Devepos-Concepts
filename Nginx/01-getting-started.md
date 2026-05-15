@@ -66,11 +66,12 @@ API Gateway
 # Main Difference
 
 | Web Server | API | API Gateway |
-|---|---|
+|---|---|---|
 | Serves webpages/files | Exchanges data | Manages APIs |
 | Mostly frontend content | Backend communication | Traffic controller |
 | Returns HTML | Returns JSON/XML | Routes requests |
 | Restaurant waiter serving food | Communication between kitchen and waiter| Reception manager controlling all requests |
+
 ---
 ### Important DevOps Understanding
 ```text id="j40uvq"
