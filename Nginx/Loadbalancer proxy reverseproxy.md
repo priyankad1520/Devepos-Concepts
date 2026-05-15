@@ -1,3 +1,9 @@
+1. Server: A server is a computer or software that provides services, data, or resources to other computers called clients.
+
+2. Backend Server: A backend server handles the main business logic, database operations, authentication, and application processing behind the scenes.
+
+3. Internet Server: An internet server is a server connected to the internet and accessible publicly by users worldwide.
+
 # Load Balancer
 
 Load Balancer is a networking component that distributes incoming traffic across multiple servers or applications.
