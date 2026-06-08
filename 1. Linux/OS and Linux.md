@@ -3,6 +3,8 @@ Q: What is the difference between wget and curl?
 Answer:
 
 wget is primarily used for downloading files from web servers and supports features like recursive downloads and download resumption. curl is a data transfer tool used to interact with web servers and APIs, supporting multiple HTTP methods such as GET, POST, PUT, and DELETE. In DevOps, wget is commonly used for downloading binaries and packages, while curl is commonly used for API testing, health checks, and service validation.
+- wget = Download files
+- curl = Call APIs and test web services
 # Operating System (OS)
 An **Operating System (OS)** is system software that acts as a bridge between: User, Applications and Hardware. It manages all computer resources and allows applications to run.
 ```text id="os1"
