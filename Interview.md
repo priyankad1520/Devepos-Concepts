@@ -41,10 +41,15 @@
 21. Can you explain the concept of umask?
 
 Follow-up questions embedded within the discussion:
+
 21. How do you check available Java versions using alternatives?
+
 22. How do you configure JAVA_HOME for a Jenkins agent?
+
 23. How do you configure the Java path for a Jenkins node in Jenkins?
+
 24. How would you troubleshoot a Jenkins agent connection failure due to Java compatibility issues?
+
 25. How would you troubleshoot an application that is not listening on the expected port?
 
 The questions asked by the interviewer in the conversation above are:
