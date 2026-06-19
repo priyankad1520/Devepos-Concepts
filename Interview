@@ -1,231 +1,170 @@
 1. Here is the list of questions asked in the interview so far:
-
 2. What is a CI/CD pipeline?
-
 3. What were your day-to-day activities as a DevOps Engineer?
-
 4. What daily challenges or issues did you face?
-
 5. What is the difference between du and df commands?
-
 6. What are mounts in Linux?
-
 7. What is your hands-on experience with Jenkins?
-
 8. What are the ways to configure credentials in Jenkins?
-
 9. What are the types of credentials you can configure in Jenkins?
-
 10. How do you configure Jenkins credentials?
-
 11. How do you restrict the scope of a credential ID in Jenkins?
-
 12. How do you configure a slave node (agent) in a Jenkins master/controller?
-
 13. Is there a possibility that Jenkins will not accept a node because of a Java version issue?
-
 14. If the default Java version on the agent is different from the version required by Jenkins, how do you configure it?
-
 15. If multiple Java versions are installed and the required version is not the default, how do you configure Jenkins to use it?
-
 16. How do you configure Jenkins to use a non-default Java version without changing the system default Java?
-
 17. What does the uptime command do?
-
 18. What does the netstat command do?
-
 19. How do you list listening ports in Linux?
-
 20. How do you identify the process/service name associated with a port?
-
 21. Can you explain the concept of umask?
-
 Follow-up questions embedded within the discussion:
-
 21. How do you check available Java versions using alternatives?
-
 22. How do you configure JAVA_HOME for a Jenkins agent?
-
 23. How do you configure the Java path for a Jenkins node in Jenkins?
-
 24. How would you troubleshoot a Jenkins agent connection failure due to Java compatibility issues?
-
 25. How would you troubleshoot an application that is not listening on the expected port?
 
 The questions asked by the interviewer in the conversation above are:
 
 1. How much time have you worked on Kubernetes?
-
 2. What kind of work did you do on Kubernetes?
-
 3. Did you do troubleshooting on deployments or applications such as Python applications?
-
 4. What type of Kubernetes have you worked on? AWS EKS or some other Kubernetes?
-
 5. Is it managed by AWS or managed by your organization?
-
 6. Since EKS is managed by AWS, you don't need to do autoscaling or cluster management, right?
-
 7. What type of troubleshooting were you doing in EKS?
-
 8. Other than pod issues, what ingress routing problems have you faced?
-
 9. Explain an ingress routing issue that you have resolved.
-
 10. Let's say your application is running in one Availability Zone and that AZ goes down. What will happen?
-
 11. If the cluster is deployed across multiple Availability Zones, what will happen when one AZ goes down?
-
 12. If everything is in AZ-1 and AZ-1 goes down, what will happen to your database?
-
 13. You said there is a standby database in AZ-2. How does the data move from AZ-1 to AZ-2?
-
 14. How much time will it take for the application/database to switch from AZ-1 to AZ-2?
-
 15. During that 1–2 minute failover window, users are still accessing the application. What happens to those requests?
-
 16. How will you solve the problem of users facing downtime during the database failover?
-
 17. These are the exact technical questions that were asked during the Kubernetes, EKS, Multi-AZ, and database failover discussion.
 
 Here are the exact interview questions (or closest reconstruction) from the conversation you shared:
 
 ### Terraform
 1. Can you create any resource using Terraform? Create an EC2 instance or a VPC.
-
 2. If Terraform plan shows instances will be destroyed and recreated, how do you avoid downtime?
-
 3. How do you configure the Terraform backend?
-
 4. Someone manually changed infrastructure in AWS and we want those changes to be part of the next Terraform run. What do you do?
-
 5. What is the difference between Terraform Import and Terraform Refresh?
-
 6. How do you architect Terraform for a multi-account AWS environment?
-
 7. What is the purpose of provider alias?
-
 8. What is the difference between provider alias and AssumeRole?
-
 9. If you change the IAM role in the provider configuration, what happens when you run Terraform Apply?
-
 10. Terraform Apply failed halfway. Some resources were created and some were not. How do you troubleshoot?
-
 11. How do you store and manage secrets in Terraform?
-
 12. How do you read secrets from AWS Secrets Manager in Terraform?
-
 13. Explain the structure of the Terraform data block.
-
 14. How do you reference a secret value inside Terraform code?
-
 15. How do you pass secret values into Terraform modules?
 
 ### CI/CD & Jenkins
 1. Explain your CI/CD workflow end to end.
-
 2. How does Jenkins know when to trigger a pipeline after a code push?
-
 3. Have you created CI/CD pipelines from scratch?
-
 4. How do you run Jenkins agents/builds in Kubernetes?
-
 5. How do dynamic Jenkins agent pods work?
-
 6. How do you optimize CI/CD infrastructure costs?
 
 ### Kubernetes / EKS
 1. What happens during an EKS upgrade from 1.33 to 1.34?
-
 2. Explain the sequence of an EKS version upgrade.
-
 3. Your application suddenly crashes after running successfully for one hour. How do you troubleshoot?
-
 4. You created an EKS node group, EC2 instances are running, but nodes are not joining the cluster. What could be the issue?
-
 5. What autoscaling mechanisms do you use in Kubernetes?
-
 6. Explain Node Autoscaling.
-
 7. How does Cluster Autoscaler decide when to add nodes?
-
 8. How do you secure an EKS cluster?
-
 9. How do two EKS clusters communicate with each other?
-
 10. How would you troubleshoot pod crashes?
-
 11. What logs and commands would you use during Kubernetes troubleshooting?
 
 ### Docker
 1. How do you optimize Docker images?
-
 2. What is a multi-stage Docker build?
-
 3. How do you reduce Docker image size?
 
 ### AWS Networking
 1. Explain path-based routing in AWS.
-
 2. Where do you configure /api, /ui, /auth routes?
-
 3. How do applications communicate between different VPCs?
-
 4. When would you use VPC Peering?
-
 5. When would you use Transit Gateway?
-
 6. How do you configure networking between two EKS clusters?
 
 ### AWS Security
 1. How do you store application secrets?
-
 2. Which secret management service do you use?
-
 3. Why would you choose Secrets Manager over Parameter Store?
-
 4. How do you rotate secrets?
-
 5. How frequently do you rotate secrets?
-
 6. What security controls do you implement for applications running in AWS?
-
 7. How do you secure applications deployed in EKS?
 
 ### AWS Architecture
 1. A new application needs to be deployed in AWS. How do you design the architecture?
-
 2. What standards do you follow before deploying a new application?
-
 3. What AWS services do you typically use when onboarding a new application?
-
 4. How do you ensure high availability and scalability?
 
 ### AWS Batch
 1. How do you perform batch-based processing/scraping in AWS?
-
 2. Which AWS services would you use for batch jobs?
 
 ### Observability / Troubleshooting
 1. How do you troubleshoot a production application outage?
-
 2. How do you identify whether the issue is at application, container, Kubernetes, or infrastructure level?
-
 3. What monitoring and alerting tools do you use?
-
 4. How do you monitor EKS workloads?
 
 ### General Scenario-Based Questions
 1. Tell me about a production issue you resolved.
-
 2. Tell me about a failed deployment and how you recovered.
-
 3. Tell me about a Terraform deployment failure and how you fixed it.
-
 4. Tell me about a Kubernetes issue and how you resolved it.
-
 5. Tell me about a security issue you handled.
-
 6. Tell me about a scaling issue you solved.
-
 7. These are the questions I would expect from the interviewer based on the discussion. The strongest preparation areas are Terraform internals, EKS troubleshooting, AWS networking, security, and CI/CD design.
+The questions asked by the interviewer in the conversation above are:
+1.	How much time have you worked on Kubernetes?
+2.	What kind of work did you do on Kubernetes?
+3.	Did you do troubleshooting on deployments or applications such as Python applications?
+4.	What type of Kubernetes have you worked on? AWS EKS or some other Kubernetes?
+5.	Is it managed by AWS or managed by your organization?
+6.	Since EKS is managed by AWS, you don't need to do autoscaling or cluster management, right?
+7.	What type of troubleshooting were you doing in EKS?
+8.	Other than pod issues, what ingress routing problems have you faced?
+9.	Explain an ingress routing issue that you have resolved.
+10.	Let's say your application is running in one Availability Zone and that AZ goes down. What will happen?
+11.	If the cluster is deployed across multiple Availability Zones, what will happen when one AZ goes down?
+12.	If everything is in AZ-1 and AZ-1 goes down, what will happen to your database?
+13.	You said there is a standby database in AZ-2. How does the data move from AZ-1 to AZ-2?
+14.	How much time will it take for the application/database to switch from AZ-1 to AZ-2?
+15.	During that 1â€“2 minute failover window, users are still accessing the application. What happens to those requests?
+16.	How will you solve the problem of users facing downtime during the database failover?
+
+These are the exact technical questions that were asked during the Kubernetes, EKS, Multi-AZ, and database failover discussion.
+
+1. How do you role and responsibilities in the current project? Day to day activities.
+2. Okay, so what are the technologies you are using in the current project?
+3. Okay, so you have mentioned that you have experience with Istio as well, right? So I mainly like, what is the purpose of using Istio?
+4. Okay, what you can basically is the leaning on the communication part. So how can you troubleshoot?
+5. Which strategy are you using for that?
+6. Injector injection is running fine and parallelly everything looks good, okay. So when it comes to Istio, Istio connectivity is also properly configured, okay, 7. but still the service-to-service communication is not happening. So for a workaround, what do you will do?
+8. Okay, so can you explain what are the types of TLS modes we have?
+9. Okay, got it. And can you tell me the process, like if there is any service which should be deployed in the production, how can you follow?
+10. I'm using the config maps, okay? So those config maps are attaching to a few deployment files as well. So whenever I'm trying to update the config maps, the 11. deployment has to be restarted automatically. So can you give me the automation, how can you try it?
+12. I don't think so, because I have tried the option, but it is not working in my case.
+13. Yeah, I'm giving the real-time scenario case, okay? I'm just updated the config map, but it is not restarting the deployment file. And you just mentioned like 14. checksums and annotations I have tried, but it is not working. So what could be the alternate project?
+15. That is what I just mentioned that I want an automation for that. Like, not every time you can, I mean, once you updated the config map, then you can come to 16. the pipeline and to re-run and check the pipeline and to restart the pods. That's not the, I mean, still there is a manual effort, right?
+17. Okay, so is it meant like you are maintaining the 340 parts in the environment, right? So may I know how many namespaces you have?
+18. Okay, so let's say I have to create a secret in all the namespaces. Okay, so that means I can't create every namespace in the, I mean, create a secret in every namespace, right? It took a lot of time. So once I create a secret in one default namespace, it has to be replicated in the remaining namespaces. How can we do that?
+19. Okay, let's say you're in the production environment, okay? So someone has deleted the namespace by accident. So what you will do and how can you handle that?
+20. Okay, but I mean not all the components are mentioned in the Helm right. Plus for like, I mean, you are using the Helm deployments type of things and daemonsets or something like that, but not for the configmaps and secrets. So how can you take them?
